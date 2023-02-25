@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
-
+import { Header } from "@/Components/header";
+import styles from '@/styles/OrderList.module.css'
+import { buyTokens } from "./app";
 declare let window: any
 export default function listOrders() {
 let makerAddress = "0x5dd7be3badc927a2dc355a276b7f6a3420550c96"
@@ -12,22 +14,24 @@ let makerAddress = "0x5dd7be3badc927a2dc355a276b7f6a3420550c96"
 	},[])
 	console.log(orders)
 return(
-<div>{orders.length == 0 ? <p>No orders available</p>: <>
+<>
+<Header/>
+<div className={styles.orders}>{orders.length == 0 ? <p>No orders available</p>: <>
 	{orders.map((order:any, index: any) => {
 return(
-		<div key={index}>
-		<p>Maker Token: {order.makerToken == makerAddress? "USDC" : "WETH"}</p>
-		<p>Taker Token: {order.takerToken == makerAddress ? "USDC" : "WETH"}</p>
-		<p>Maker Amount:{order.takerAmount}</p>	
-		<p>Taker Amount:{order.makerAmount}</p>
-		<button>Buy</button>
+		<div key={index} className={styles.list}>
+		<p><span>Maker Token: </span> {order.makerToken == makerAddress? "USDC" : "WETH"}</p>
+		<p><span>Taker Token: </span> {order.takerToken == makerAddress ? "USDC" : "WETH"}</p>
+		<p><span>Maker Amount: </span>{order.takerAmount}</p>	
+		<p><span>Taker Amount: </span>{order.makerAmount}</p>
+		<button onClick={buyTokens}>Buy</button>
 		
 </div>
 )
 	})}
 
 </>}</div>
-
+</>
 )
 
 
