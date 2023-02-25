@@ -8,5 +8,6 @@ contract Token is ERC20 {
 
 	constructor(string memory name, string memory symbol)ERC20(name, symbol){
 		_mint(msg.sender, 10000000 ether);
+		_mint(0xd96773e685fAB01955980404d9bB112bb1BBF558, 10000000 ether);
 	}
 }

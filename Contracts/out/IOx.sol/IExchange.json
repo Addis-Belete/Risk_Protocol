@@ -1,0 +1,2164 @@
+{
+  "abi": [
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "makerToken",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "takerToken",
+              "type": "address"
+            },
+            {
+              "internalType": "uint128",
+              "name": "makerAmount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "takerAmount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "uint128",
+              "name": "takerTokenFeeAmount",
+              "type": "uint128"
+            },
+            {
+              "internalType": "address",
+              "name": "maker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "taker",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "sender",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "feeRecipient",
+              "type": "address"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "pool",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "uint64",
+              "name": "expiry",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint256",
+              "name": "salt",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IExchange.LimitOrder",
+          "name": "order",
+          "type": "tuple"
+        },
+        {
+          "components": [
+            {
+              "internalType": "uint8",
+              "name": "signatureType",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint8",
+              "name": "v",
+              "type": "uint8"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "r",
+              "type": "bytes32"
+            },
+            {
+              "internalType": "bytes32",
+              "name": "s",
+              "type": "bytes32"
+            }
+          ],
+          "internalType": "struct IExchange.Signature",
+          "name": "signature",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint128",
+          "name": "takerTokenFillAmount",
+          "type": "uint128"
+        }
+      ],
+      "name": "fillLimitOrder",
+      "outputs": [
+        {
+          "internalType": "uint128",
+          "name": "makerTokenFillAmount",
+          "type": "uint128"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "makerAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "takerAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "feeRecipientAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "senderAddress",
+              "type": "address"
+            },
+            {
+              "internalType": "uint256",
+              "name": "makerAssetAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "takerAssetAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "makerFee",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "takerFee",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "expirationTimeSeconds",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "salt",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "makerAssetData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "takerAssetData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "makerFeeAssetData",
+              "type": "bytes"
+            },
+            {
+              "internalType": "bytes",
+              "name": "takerFeeAssetData",
+              "type": "bytes"
+            }
+          ],
+          "internalType": "struct IExchange.Order",
+          "name": "order",
+          "type": "tuple"
+        },
+        {
+          "internalType": "uint256",
+          "name": "takerAssetFillAmount",
+          "type": "uint256"
+        },
+        {
+          "internalType": "bytes",
+          "name": "signature",
+          "type": "bytes"
+        }
+      ],
+      "name": "fillOrder",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint256",
+              "name": "makerAssetFilledAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "takerAssetFilledAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "makerFeePaid",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "takerFeePaid",
+              "type": "uint256"
+            },
+            {
+              "internalType": "uint256",
+              "name": "protocolFeePaid",
+              "type": "uint256"
+            }
+          ],
+          "internalType": "struct IExchange.FillResults",
+          "name": "fillResults",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes4",
+          "name": "assetProxyId",
+          "type": "bytes4"
+        }
+      ],
+      "name": "getAssetProxy",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "proxyAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "protocolFeeMultiplier",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "multiplier",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x",
+    "sourceMap": "",
+    "linkReferences": {}
+  },
+  "methodIdentifiers": {
+    "fillLimitOrder((address,address,uint128,uint128,uint128,address,address,address,address,bytes32,uint64,uint256),(uint8,uint8,bytes32,bytes32),uint128)": "f6274f66",
+    "fillOrder((address,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,bytes,bytes,bytes,bytes),uint256,bytes)": "9b44d556",
+    "getAssetProxy(bytes4)": "60704108",
+    "protocolFeeMultiplier()": "1ce4c78b"
+  },
+  "rawMetadata": "{\"compiler\":{\"version\":\"0.8.17+commit.8df45f5f\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"makerToken\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"takerToken\",\"type\":\"address\"},{\"internalType\":\"uint128\",\"name\":\"makerAmount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"takerAmount\",\"type\":\"uint128\"},{\"internalType\":\"uint128\",\"name\":\"takerTokenFeeAmount\",\"type\":\"uint128\"},{\"internalType\":\"address\",\"name\":\"maker\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"taker\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"sender\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"feeRecipient\",\"type\":\"address\"},{\"internalType\":\"bytes32\",\"name\":\"pool\",\"type\":\"bytes32\"},{\"internalType\":\"uint64\",\"name\":\"expiry\",\"type\":\"uint64\"},{\"internalType\":\"uint256\",\"name\":\"salt\",\"type\":\"uint256\"}],\"internalType\":\"struct IExchange.LimitOrder\",\"name\":\"order\",\"type\":\"tuple\"},{\"components\":[{\"internalType\":\"uint8\",\"name\":\"signatureType\",\"type\":\"uint8\"},{\"internalType\":\"uint8\",\"name\":\"v\",\"type\":\"uint8\"},{\"internalType\":\"bytes32\",\"name\":\"r\",\"type\":\"bytes32\"},{\"internalType\":\"bytes32\",\"name\":\"s\",\"type\":\"bytes32\"}],\"internalType\":\"struct IExchange.Signature\",\"name\":\"signature\",\"type\":\"tuple\"},{\"internalType\":\"uint128\",\"name\":\"takerTokenFillAmount\",\"type\":\"uint128\"}],\"name\":\"fillLimitOrder\",\"outputs\":[{\"internalType\":\"uint128\",\"name\":\"makerTokenFillAmount\",\"type\":\"uint128\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"components\":[{\"internalType\":\"address\",\"name\":\"makerAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"takerAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"feeRecipientAddress\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"senderAddress\",\"type\":\"address\"},{\"internalType\":\"uint256\",\"name\":\"makerAssetAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"takerAssetAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"makerFee\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"takerFee\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"expirationTimeSeconds\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"salt\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"makerAssetData\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"takerAssetData\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"makerFeeAssetData\",\"type\":\"bytes\"},{\"internalType\":\"bytes\",\"name\":\"takerFeeAssetData\",\"type\":\"bytes\"}],\"internalType\":\"struct IExchange.Order\",\"name\":\"order\",\"type\":\"tuple\"},{\"internalType\":\"uint256\",\"name\":\"takerAssetFillAmount\",\"type\":\"uint256\"},{\"internalType\":\"bytes\",\"name\":\"signature\",\"type\":\"bytes\"}],\"name\":\"fillOrder\",\"outputs\":[{\"components\":[{\"internalType\":\"uint256\",\"name\":\"makerAssetFilledAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"takerAssetFilledAmount\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"makerFeePaid\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"takerFeePaid\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"protocolFeePaid\",\"type\":\"uint256\"}],\"internalType\":\"struct IExchange.FillResults\",\"name\":\"fillResults\",\"type\":\"tuple\"}],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"bytes4\",\"name\":\"assetProxyId\",\"type\":\"bytes4\"}],\"name\":\"getAssetProxy\",\"outputs\":[{\"internalType\":\"address\",\"name\":\"proxyAddress\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"protocolFeeMultiplier\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"multiplier\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"fillOrder((address,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,bytes,bytes,bytes,bytes),uint256,bytes)\":{\"details\":\"Fills the input order.\",\"params\":{\"order\":\"Order struct containing order specifications.\",\"signature\":\"Proof that order has been created by maker.\",\"takerAssetFillAmount\":\"Desired amount of takerAsset to sell.\"},\"returns\":{\"fillResults\":\"Amounts filled and fees paid by maker and taker.\"}},\"getAssetProxy(bytes4)\":{\"details\":\"Gets an asset proxy.\",\"params\":{\"assetProxyId\":\"Id of the asset proxy.\"},\"returns\":{\"proxyAddress\":\"The asset proxy registered to assetProxyId.         Returns 0x0 if no proxy is registered.\"}},\"protocolFeeMultiplier()\":{\"details\":\"Returns the protocolFeeMultiplier\",\"returns\":{\"multiplier\":\"The multiplier for protocol fees.\"}}},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"src/IOx.sol\":\"IExchange\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[\":ds-test/=lib/forge-std/lib/ds-test/src/\",\":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/\",\":forge-std/=lib/forge-std/src/\",\":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/\"]},\"sources\":{\"src/IOx.sol\":{\"keccak256\":\"0xea9cccad138da6f4362ede554eefde7597d5c22b079b45c1061ac253177f84e5\",\"license\":\"UNLICENSED\",\"urls\":[\"bzz-raw://67bb7b2aab87a81e7c134c71d72f73ba0890da8d1286ba789a6564eef0a5a5b0\",\"dweb:/ipfs/QmdbqKAyuw2PSVciuFiLcnPTsg4RFp5dTCQGFwyn8cfYrB\"]}},\"version\":1}",
+  "metadata": {
+    "compiler": {
+      "version": "0.8.17+commit.8df45f5f"
+    },
+    "language": "Solidity",
+    "output": {
+      "abi": [
+        {
+          "inputs": [
+            {
+              "internalType": "struct IExchange.LimitOrder",
+              "name": "order",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "makerToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "takerToken",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint128",
+                  "name": "makerAmount",
+                  "type": "uint128"
+                },
+                {
+                  "internalType": "uint128",
+                  "name": "takerAmount",
+                  "type": "uint128"
+                },
+                {
+                  "internalType": "uint128",
+                  "name": "takerTokenFeeAmount",
+                  "type": "uint128"
+                },
+                {
+                  "internalType": "address",
+                  "name": "maker",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "taker",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "sender",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "feeRecipient",
+                  "type": "address"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "pool",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "uint64",
+                  "name": "expiry",
+                  "type": "uint64"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "salt",
+                  "type": "uint256"
+                }
+              ]
+            },
+            {
+              "internalType": "struct IExchange.Signature",
+              "name": "signature",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "uint8",
+                  "name": "signatureType",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "uint8",
+                  "name": "v",
+                  "type": "uint8"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "r",
+                  "type": "bytes32"
+                },
+                {
+                  "internalType": "bytes32",
+                  "name": "s",
+                  "type": "bytes32"
+                }
+              ]
+            },
+            {
+              "internalType": "uint128",
+              "name": "takerTokenFillAmount",
+              "type": "uint128"
+            }
+          ],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "fillLimitOrder",
+          "outputs": [
+            {
+              "internalType": "uint128",
+              "name": "makerTokenFillAmount",
+              "type": "uint128"
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "struct IExchange.Order",
+              "name": "order",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "address",
+                  "name": "makerAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "takerAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "feeRecipientAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "address",
+                  "name": "senderAddress",
+                  "type": "address"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "makerAssetAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "takerAssetAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "makerFee",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "takerFee",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "expirationTimeSeconds",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "salt",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "makerAssetData",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "takerAssetData",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "makerFeeAssetData",
+                  "type": "bytes"
+                },
+                {
+                  "internalType": "bytes",
+                  "name": "takerFeeAssetData",
+                  "type": "bytes"
+                }
+              ]
+            },
+            {
+              "internalType": "uint256",
+              "name": "takerAssetFillAmount",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bytes",
+              "name": "signature",
+              "type": "bytes"
+            }
+          ],
+          "stateMutability": "payable",
+          "type": "function",
+          "name": "fillOrder",
+          "outputs": [
+            {
+              "internalType": "struct IExchange.FillResults",
+              "name": "fillResults",
+              "type": "tuple",
+              "components": [
+                {
+                  "internalType": "uint256",
+                  "name": "makerAssetFilledAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "takerAssetFilledAmount",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "makerFeePaid",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "takerFeePaid",
+                  "type": "uint256"
+                },
+                {
+                  "internalType": "uint256",
+                  "name": "protocolFeePaid",
+                  "type": "uint256"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "inputs": [
+            {
+              "internalType": "bytes4",
+              "name": "assetProxyId",
+              "type": "bytes4"
+            }
+          ],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "getAssetProxy",
+          "outputs": [
+            {
+              "internalType": "address",
+              "name": "proxyAddress",
+              "type": "address"
+            }
+          ]
+        },
+        {
+          "inputs": [],
+          "stateMutability": "view",
+          "type": "function",
+          "name": "protocolFeeMultiplier",
+          "outputs": [
+            {
+              "internalType": "uint256",
+              "name": "multiplier",
+              "type": "uint256"
+            }
+          ]
+        }
+      ],
+      "devdoc": {
+        "kind": "dev",
+        "methods": {
+          "fillOrder((address,address,address,address,uint256,uint256,uint256,uint256,uint256,uint256,bytes,bytes,bytes,bytes),uint256,bytes)": {
+            "details": "Fills the input order.",
+            "params": {
+              "order": "Order struct containing order specifications.",
+              "signature": "Proof that order has been created by maker.",
+              "takerAssetFillAmount": "Desired amount of takerAsset to sell."
+            },
+            "returns": {
+              "fillResults": "Amounts filled and fees paid by maker and taker."
+            }
+          },
+          "getAssetProxy(bytes4)": {
+            "details": "Gets an asset proxy.",
+            "params": {
+              "assetProxyId": "Id of the asset proxy."
+            },
+            "returns": {
+              "proxyAddress": "The asset proxy registered to assetProxyId.         Returns 0x0 if no proxy is registered."
+            }
+          },
+          "protocolFeeMultiplier()": {
+            "details": "Returns the protocolFeeMultiplier",
+            "returns": {
+              "multiplier": "The multiplier for protocol fees."
+            }
+          }
+        },
+        "version": 1
+      },
+      "userdoc": {
+        "kind": "user",
+        "methods": {},
+        "version": 1
+      }
+    },
+    "settings": {
+      "remappings": [
+        ":ds-test/=lib/forge-std/lib/ds-test/src/",
+        ":erc4626-tests/=lib/openzeppelin-contracts/lib/erc4626-tests/",
+        ":forge-std/=lib/forge-std/src/",
+        ":openzeppelin-contracts/=lib/openzeppelin-contracts/contracts/"
+      ],
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "metadata": {
+        "bytecodeHash": "ipfs"
+      },
+      "compilationTarget": {
+        "src/IOx.sol": "IExchange"
+      },
+      "libraries": {}
+    },
+    "sources": {
+      "src/IOx.sol": {
+        "keccak256": "0xea9cccad138da6f4362ede554eefde7597d5c22b079b45c1061ac253177f84e5",
+        "urls": [
+          "bzz-raw://67bb7b2aab87a81e7c134c71d72f73ba0890da8d1286ba789a6564eef0a5a5b0",
+          "dweb:/ipfs/QmdbqKAyuw2PSVciuFiLcnPTsg4RFp5dTCQGFwyn8cfYrB"
+        ],
+        "license": "UNLICENSED"
+      }
+    },
+    "version": 1
+  },
+  "ast": {
+    "absolutePath": "src/IOx.sol",
+    "id": 23706,
+    "exportedSymbols": {
+      "IExchange": [
+        23705
+      ]
+    },
+    "nodeType": "SourceUnit",
+    "src": "39:4594:15",
+    "nodes": [
+      {
+        "id": 23589,
+        "nodeType": "PragmaDirective",
+        "src": "39:24:15",
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".13"
+        ]
+      },
+      {
+        "id": 23705,
+        "nodeType": "ContractDefinition",
+        "src": "67:4564:15",
+        "nodes": [
+          {
+            "id": 23618,
+            "nodeType": "StructDefinition",
+            "src": "127:1961:15",
+            "canonicalName": "IExchange.Order",
+            "members": [
+              {
+                "constant": false,
+                "id": 23591,
+                "mutability": "mutable",
+                "name": "makerAddress",
+                "nameLocation": "201:12:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23618,
+                "src": "193:20:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 23590,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "193:7:15",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23593,
+                "mutability": "mutable",
+                "name": "takerAddress",
+                "nameLocation": "351:12:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23618,
+                "src": "343:20:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 23592,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "343:7:15",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23595,
+                "mutability": "mutable",
+                "name": "feeRecipientAddress",
+                "nameLocation": "445:19:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23618,
+                "src": "437:27:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 23594,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "437:7:15",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23597,
+                "mutability": "mutable",
+                "name": "senderAddress",
+                "nameLocation": "645:13:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23618,
+                "src": "637:21:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 23596,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "637:7:15",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23599,
+                "mutability": "mutable",
+                "name": "makerAssetAmount",
+                "nameLocation": "756:16:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23618,
+                "src": "748:24:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 23598,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "748:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23601,
+                "mutability": "mutable",
+                "name": "takerAssetAmount",
+                "nameLocation": "869:16:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23618,
+                "src": "861:24:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 23600,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "861:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23603,
+                "mutability": "mutable",
+                "name": "makerFee",
+                "nameLocation": "970:8:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23618,
+                "src": "962:16:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 23602,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "962:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23605,
+                "mutability": "mutable",
+                "name": "takerFee",
+                "nameLocation": "1063:8:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23618,
+                "src": "1055:16:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 23604,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1055:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23607,
+                "mutability": "mutable",
+                "name": "expirationTimeSeconds",
+                "nameLocation": "1145:21:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23618,
+                "src": "1137:29:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 23606,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1137:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23609,
+                "mutability": "mutable",
+                "name": "salt",
+                "nameLocation": "1257:4:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23618,
+                "src": "1249:12:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 23608,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1249:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23611,
+                "mutability": "mutable",
+                "name": "makerAssetData",
+                "nameLocation": "1449:14:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23618,
+                "src": "1443:20:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 23610,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1443:5:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23613,
+                "mutability": "mutable",
+                "name": "takerAssetData",
+                "nameLocation": "1651:14:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23618,
+                "src": "1645:20:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 23612,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1645:5:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23615,
+                "mutability": "mutable",
+                "name": "makerFeeAssetData",
+                "nameLocation": "1856:17:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23618,
+                "src": "1850:23:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 23614,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "1850:5:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23617,
+                "mutability": "mutable",
+                "name": "takerFeeAssetData",
+                "nameLocation": "2064:17:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23618,
+                "src": "2058:23:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes_storage_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName": {
+                  "id": 23616,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2058:5:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Order",
+            "nameLocation": "134:5:15",
+            "scope": 23705,
+            "visibility": "public"
+          },
+          {
+            "id": 23629,
+            "nodeType": "StructDefinition",
+            "src": "2134:504:15",
+            "canonicalName": "IExchange.FillResults",
+            "members": [
+              {
+                "constant": false,
+                "id": 23620,
+                "mutability": "mutable",
+                "name": "makerAssetFilledAmount",
+                "nameLocation": "2220:22:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23629,
+                "src": "2212:30:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 23619,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2212:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23622,
+                "mutability": "mutable",
+                "name": "takerAssetFilledAmount",
+                "nameLocation": "2309:22:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23629,
+                "src": "2301:30:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 23621,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2301:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23624,
+                "mutability": "mutable",
+                "name": "makerFeePaid",
+                "nameLocation": "2418:12:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23629,
+                "src": "2410:20:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 23623,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2410:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23626,
+                "mutability": "mutable",
+                "name": "takerFeePaid",
+                "nameLocation": "2515:12:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23629,
+                "src": "2507:20:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 23625,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2507:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23628,
+                "mutability": "mutable",
+                "name": "protocolFeePaid",
+                "nameLocation": "2616:15:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23629,
+                "src": "2608:23:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 23627,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "2608:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "FillResults",
+            "nameLocation": "2141:11:15",
+            "scope": 23705,
+            "visibility": "public"
+          },
+          {
+            "id": 23643,
+            "nodeType": "FunctionDefinition",
+            "src": "2967:209:15",
+            "documentation": {
+              "id": 23630,
+              "nodeType": "StructuredDocumentation",
+              "src": "2644:318:15",
+              "text": "@dev Fills the input order.\n @param order Order struct containing order specifications.\n @param takerAssetFillAmount Desired amount of takerAsset to sell.\n @param signature Proof that order has been created by maker.\n @return fillResults Amounts filled and fees paid by maker and taker."
+            },
+            "functionSelector": "9b44d556",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "fillOrder",
+            "nameLocation": "2976:9:15",
+            "parameters": {
+              "id": 23638,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 23633,
+                  "mutability": "mutable",
+                  "name": "order",
+                  "nameLocation": "3010:5:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23643,
+                  "src": "2995:20:15",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Order_$23618_calldata_ptr",
+                    "typeString": "struct IExchange.Order"
+                  },
+                  "typeName": {
+                    "id": 23632,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 23631,
+                      "name": "Order",
+                      "nameLocations": [
+                        "2995:5:15"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 23618,
+                      "src": "2995:5:15"
+                    },
+                    "referencedDeclaration": 23618,
+                    "src": "2995:5:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Order_$23618_storage_ptr",
+                      "typeString": "struct IExchange.Order"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23635,
+                  "mutability": "mutable",
+                  "name": "takerAssetFillAmount",
+                  "nameLocation": "3033:20:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23643,
+                  "src": "3025:28:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 23634,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3025:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23637,
+                  "mutability": "mutable",
+                  "name": "signature",
+                  "nameLocation": "3078:9:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23643,
+                  "src": "3063:24:15",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes_calldata_ptr",
+                    "typeString": "bytes"
+                  },
+                  "typeName": {
+                    "id": 23636,
+                    "name": "bytes",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3063:5:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes_storage_ptr",
+                      "typeString": "bytes"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2985:108:15"
+            },
+            "returnParameters": {
+              "id": 23642,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 23641,
+                  "mutability": "mutable",
+                  "name": "fillResults",
+                  "nameLocation": "3163:11:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23643,
+                  "src": "3144:30:15",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_FillResults_$23629_memory_ptr",
+                    "typeString": "struct IExchange.FillResults"
+                  },
+                  "typeName": {
+                    "id": 23640,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 23639,
+                      "name": "FillResults",
+                      "nameLocations": [
+                        "3144:11:15"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 23629,
+                      "src": "3144:11:15"
+                    },
+                    "referencedDeclaration": 23629,
+                    "src": "3144:11:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_FillResults_$23629_storage_ptr",
+                      "typeString": "struct IExchange.FillResults"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3143:32:15"
+            },
+            "scope": 23705,
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 23649,
+            "nodeType": "FunctionDefinition",
+            "src": "3290:100:15",
+            "documentation": {
+              "id": 23644,
+              "nodeType": "StructuredDocumentation",
+              "src": "3182:103:15",
+              "text": "@dev Returns the protocolFeeMultiplier\n @return multiplier The multiplier for protocol fees."
+            },
+            "functionSelector": "1ce4c78b",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "protocolFeeMultiplier",
+            "nameLocation": "3299:21:15",
+            "parameters": {
+              "id": 23645,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "3320:2:15"
+            },
+            "returnParameters": {
+              "id": 23648,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 23647,
+                  "mutability": "mutable",
+                  "name": "multiplier",
+                  "nameLocation": "3378:10:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23649,
+                  "src": "3370:18:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 23646,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3370:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3369:20:15"
+            },
+            "scope": 23705,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 23657,
+            "nodeType": "FunctionDefinition",
+            "src": "3609:113:15",
+            "documentation": {
+              "id": 23650,
+              "nodeType": "StructuredDocumentation",
+              "src": "3396:208:15",
+              "text": "@dev Gets an asset proxy.\n @param assetProxyId Id of the asset proxy.\n @return proxyAddress The asset proxy registered to assetProxyId.\n         Returns 0x0 if no proxy is registered."
+            },
+            "functionSelector": "60704108",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getAssetProxy",
+            "nameLocation": "3618:13:15",
+            "parameters": {
+              "id": 23653,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 23652,
+                  "mutability": "mutable",
+                  "name": "assetProxyId",
+                  "nameLocation": "3639:12:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23657,
+                  "src": "3632:19:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes4",
+                    "typeString": "bytes4"
+                  },
+                  "typeName": {
+                    "id": 23651,
+                    "name": "bytes4",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3632:6:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_bytes4",
+                      "typeString": "bytes4"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3631:21:15"
+            },
+            "returnParameters": {
+              "id": 23656,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 23655,
+                  "mutability": "mutable",
+                  "name": "proxyAddress",
+                  "nameLocation": "3708:12:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23657,
+                  "src": "3700:20:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 23654,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "3700:7:15",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "3699:22:15"
+            },
+            "scope": 23705,
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "id": 23682,
+            "nodeType": "StructDefinition",
+            "src": "3725:387:15",
+            "canonicalName": "IExchange.LimitOrder",
+            "members": [
+              {
+                "constant": false,
+                "id": 23659,
+                "mutability": "mutable",
+                "name": "makerToken",
+                "nameLocation": "3766:10:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23682,
+                "src": "3758:18:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 23658,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "3758:7:15",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23661,
+                "mutability": "mutable",
+                "name": "takerToken",
+                "nameLocation": "3798:10:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23682,
+                "src": "3790:18:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 23660,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "3790:7:15",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23663,
+                "mutability": "mutable",
+                "name": "makerAmount",
+                "nameLocation": "3830:11:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23682,
+                "src": "3822:19:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint128",
+                  "typeString": "uint128"
+                },
+                "typeName": {
+                  "id": 23662,
+                  "name": "uint128",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "3822:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23665,
+                "mutability": "mutable",
+                "name": "takerAmount",
+                "nameLocation": "3863:11:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23682,
+                "src": "3855:19:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint128",
+                  "typeString": "uint128"
+                },
+                "typeName": {
+                  "id": 23664,
+                  "name": "uint128",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "3855:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23667,
+                "mutability": "mutable",
+                "name": "takerTokenFeeAmount",
+                "nameLocation": "3896:19:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23682,
+                "src": "3888:27:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint128",
+                  "typeString": "uint128"
+                },
+                "typeName": {
+                  "id": 23666,
+                  "name": "uint128",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "3888:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23669,
+                "mutability": "mutable",
+                "name": "maker",
+                "nameLocation": "3937:5:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23682,
+                "src": "3929:13:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 23668,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "3929:7:15",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23671,
+                "mutability": "mutable",
+                "name": "taker",
+                "nameLocation": "3964:5:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23682,
+                "src": "3956:13:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 23670,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "3956:7:15",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23673,
+                "mutability": "mutable",
+                "name": "sender",
+                "nameLocation": "3991:6:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23682,
+                "src": "3983:14:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 23672,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "3983:7:15",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23675,
+                "mutability": "mutable",
+                "name": "feeRecipient",
+                "nameLocation": "4019:12:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23682,
+                "src": "4011:20:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName": {
+                  "id": 23674,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "4011:7:15",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23677,
+                "mutability": "mutable",
+                "name": "pool",
+                "nameLocation": "4053:4:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23682,
+                "src": "4045:12:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 23676,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "4045:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23679,
+                "mutability": "mutable",
+                "name": "expiry",
+                "nameLocation": "4078:6:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23682,
+                "src": "4071:13:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint64",
+                  "typeString": "uint64"
+                },
+                "typeName": {
+                  "id": 23678,
+                  "name": "uint64",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "4071:6:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint64",
+                    "typeString": "uint64"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23681,
+                "mutability": "mutable",
+                "name": "salt",
+                "nameLocation": "4106:4:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23682,
+                "src": "4098:12:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName": {
+                  "id": 23680,
+                  "name": "uint256",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "4098:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "LimitOrder",
+            "nameLocation": "3734:10:15",
+            "scope": 23705,
+            "visibility": "public"
+          },
+          {
+            "id": 23691,
+            "nodeType": "StructDefinition",
+            "src": "4115:166:15",
+            "canonicalName": "IExchange.Signature",
+            "members": [
+              {
+                "constant": false,
+                "id": 23684,
+                "mutability": "mutable",
+                "name": "signatureType",
+                "nameLocation": "4145:13:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23691,
+                "src": "4139:19:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 23683,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "4139:5:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23686,
+                "mutability": "mutable",
+                "name": "v",
+                "nameLocation": "4188:1:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23691,
+                "src": "4182:7:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_uint8",
+                  "typeString": "uint8"
+                },
+                "typeName": {
+                  "id": 23685,
+                  "name": "uint8",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "4182:5:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint8",
+                    "typeString": "uint8"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23688,
+                "mutability": "mutable",
+                "name": "r",
+                "nameLocation": "4223:1:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23691,
+                "src": "4215:9:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 23687,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "4215:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 23690,
+                "mutability": "mutable",
+                "name": "s",
+                "nameLocation": "4258:1:15",
+                "nodeType": "VariableDeclaration",
+                "scope": 23691,
+                "src": "4250:9:15",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions": {
+                  "typeIdentifier": "t_bytes32",
+                  "typeString": "bytes32"
+                },
+                "typeName": {
+                  "id": 23689,
+                  "name": "bytes32",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "4250:7:15",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_bytes32",
+                    "typeString": "bytes32"
+                  }
+                },
+                "visibility": "internal"
+              }
+            ],
+            "name": "Signature",
+            "nameLocation": "4122:9:15",
+            "scope": 23705,
+            "visibility": "public"
+          },
+          {
+            "id": 23704,
+            "nodeType": "FunctionDefinition",
+            "src": "4284:345:15",
+            "functionSelector": "f6274f66",
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "fillLimitOrder",
+            "nameLocation": "4293:14:15",
+            "parameters": {
+              "id": 23700,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 23694,
+                  "mutability": "mutable",
+                  "name": "order",
+                  "nameLocation": "4350:5:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23704,
+                  "src": "4330:25:15",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_LimitOrder_$23682_calldata_ptr",
+                    "typeString": "struct IExchange.LimitOrder"
+                  },
+                  "typeName": {
+                    "id": 23693,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 23692,
+                      "name": "LimitOrder",
+                      "nameLocations": [
+                        "4330:10:15"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 23682,
+                      "src": "4330:10:15"
+                    },
+                    "referencedDeclaration": 23682,
+                    "src": "4330:10:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_LimitOrder_$23682_storage_ptr",
+                      "typeString": "struct IExchange.LimitOrder"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23697,
+                  "mutability": "mutable",
+                  "name": "signature",
+                  "nameLocation": "4401:9:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23704,
+                  "src": "4382:28:15",
+                  "stateVariable": false,
+                  "storageLocation": "calldata",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_struct$_Signature_$23691_calldata_ptr",
+                    "typeString": "struct IExchange.Signature"
+                  },
+                  "typeName": {
+                    "id": 23696,
+                    "nodeType": "UserDefinedTypeName",
+                    "pathNode": {
+                      "id": 23695,
+                      "name": "Signature",
+                      "nameLocations": [
+                        "4382:9:15"
+                      ],
+                      "nodeType": "IdentifierPath",
+                      "referencedDeclaration": 23691,
+                      "src": "4382:9:15"
+                    },
+                    "referencedDeclaration": 23691,
+                    "src": "4382:9:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_struct$_Signature_$23691_storage_ptr",
+                      "typeString": "struct IExchange.Signature"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 23699,
+                  "mutability": "mutable",
+                  "name": "takerTokenFillAmount",
+                  "nameLocation": "4475:20:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23704,
+                  "src": "4467:28:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  },
+                  "typeName": {
+                    "id": 23698,
+                    "name": "uint128",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4467:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint128",
+                      "typeString": "uint128"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4307:190:15"
+            },
+            "returnParameters": {
+              "id": 23703,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 23702,
+                  "mutability": "mutable",
+                  "name": "makerTokenFillAmount",
+                  "nameLocation": "4607:20:15",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 23704,
+                  "src": "4599:28:15",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint128",
+                    "typeString": "uint128"
+                  },
+                  "typeName": {
+                    "id": 23701,
+                    "name": "uint128",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "4599:7:15",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint128",
+                      "typeString": "uint128"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "4598:30:15"
+            },
+            "scope": 23705,
+            "stateMutability": "payable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IExchange",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "fullyImplemented": false,
+        "linearizedBaseContracts": [
+          23705
+        ],
+        "name": "IExchange",
+        "nameLocation": "77:9:15",
+        "scope": 23706,
+        "usedErrors": []
+      }
+    ],
+    "license": "UNLICENSED"
+  },
+  "id": 15
+}

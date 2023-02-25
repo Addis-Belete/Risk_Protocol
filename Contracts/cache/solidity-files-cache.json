@@ -1006,6 +1006,61 @@
         }
       }
     },
+    "script/Exchange.s.sol": {
+      "lastModificationDate": 1677316961958,
+      "contentHash": "bc539169184cdc576ac19c38860c93c5",
+      "sourceName": "script/Exchange.s.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/Script.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "src/Exchange.sol",
+        "src/IOx.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "ExchangeScript": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Exchange.s.sol/ExchangeScript.json"
+        }
+      }
+    },
     "src/Counter.sol": {
       "lastModificationDate": 1677240368661,
       "contentHash": "ae6c800a2b4c57768024d6e9423d39e8",
@@ -1046,8 +1101,8 @@
       }
     },
     "src/ERC20.sol": {
-      "lastModificationDate": 1677261780407,
-      "contentHash": "20ecb9580de1186b56a5d729084667bd",
+      "lastModificationDate": 1677327517531,
+      "contentHash": "a179113aebd0c75567d8901e4b4e3644",
       "sourceName": "src/ERC20.sol",
       "solcConfig": {
         "settings": {
@@ -1086,6 +1141,87 @@
       "artifacts": {
         "Token": {
           "0.8.17+commit.8df45f5f.Darwin.appleclang": "ERC20.sol/Token.json"
+        }
+      }
+    },
+    "src/Exchange.sol": {
+      "lastModificationDate": 1677316829979,
+      "contentHash": "5c1f1959aca58f27972dae3d6cb34451",
+      "sourceName": "src/Exchange.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "src/IOx.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "Exchange": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Exchange.sol/Exchange.json"
+        }
+      }
+    },
+    "src/IOx.sol": {
+      "lastModificationDate": 1677316133486,
+      "contentHash": "fe4989e17df22b447d352aa81818f514",
+      "sourceName": "src/IOx.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "IExchange": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "IOx.sol/IExchange.json"
         }
       }
     },

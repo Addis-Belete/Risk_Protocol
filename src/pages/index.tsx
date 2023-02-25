@@ -2,7 +2,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-
+import { listToken, buyTokens } from './app'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -16,6 +16,8 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <h1>You Must do a great Job pass this interview</h1>
+		<button onClick={listToken} >list tokens</button>
+		<button onClick={buyTokens}>Buy tokens</button>
       </main>
     </>
   )
