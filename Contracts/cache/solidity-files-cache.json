@@ -897,6 +897,45 @@
         }
       }
     },
+    "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol": {
+      "lastModificationDate": 1677260817080,
+      "contentHash": "ddc8de099bf33e1a01831ad72f9ef47d",
+      "sourceName": "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.0",
+      "artifacts": {
+        "SafeMath": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "SafeMath.sol/SafeMath.json"
+        }
+      }
+    },
     "script/Counter.s.sol": {
       "lastModificationDate": 1677240368661,
       "contentHash": "0705c52104730a78aef4aa6694175c81",
@@ -1061,6 +1100,65 @@
         }
       }
     },
+    "script/Token.s.sol": {
+      "lastModificationDate": 1677400243393,
+      "contentHash": "8c1770fb077103d8785bac9b0cc7470c",
+      "sourceName": "script/Token.s.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/Script.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "src/Token.sol",
+        "src/extensions/ERC20Detailed.sol",
+        "src/extensions/Initializable.sol",
+        "src/extensions/Ownable.sol",
+        "src/extensions/SafeMathInt.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "ATokenScript": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Token.s.sol/ATokenScript.json"
+        }
+      }
+    },
     "src/Counter.sol": {
       "lastModificationDate": 1677240368661,
       "contentHash": "ae6c800a2b4c57768024d6e9423d39e8",
@@ -1222,6 +1320,213 @@
       "artifacts": {
         "IExchange": {
           "0.8.17+commit.8df45f5f.Darwin.appleclang": "IOx.sol/IExchange.json"
+        }
+      }
+    },
+    "src/Token.sol": {
+      "lastModificationDate": 1677400379714,
+      "contentHash": "bb289c4545f0a8bdbd71e32418fb3c5c",
+      "sourceName": "src/Token.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "lib/openzeppelin-contracts/contracts/utils/math/SafeMath.sol",
+        "src/extensions/ERC20Detailed.sol",
+        "src/extensions/Initializable.sol",
+        "src/extensions/Ownable.sol",
+        "src/extensions/SafeMathInt.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "UFragments": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Token.sol/UFragments.json"
+        }
+      }
+    },
+    "src/extensions/ERC20Detailed.sol": {
+      "lastModificationDate": 1677395443115,
+      "contentHash": "c645c67958793c96038ac84c477e61ac",
+      "sourceName": "src/extensions/ERC20Detailed.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "src/extensions/Initializable.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "ERC20Detailed": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "ERC20Detailed.sol/ERC20Detailed.json"
+        }
+      }
+    },
+    "src/extensions/Initializable.sol": {
+      "lastModificationDate": 1677395465016,
+      "contentHash": "5145d96181648b73cf00fc08388b3bf0",
+      "sourceName": "src/extensions/Initializable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "Initializable": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Initializable.sol/Initializable.json"
+        }
+      }
+    },
+    "src/extensions/Ownable.sol": {
+      "lastModificationDate": 1677395979487,
+      "contentHash": "07f799bcdcab51aef31ddc783d5d75eb",
+      "sourceName": "src/extensions/Ownable.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "src/extensions/Initializable.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "Ownable": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "Ownable.sol/Ownable.json"
+        }
+      }
+    },
+    "src/extensions/SafeMathInt.sol": {
+      "lastModificationDate": 1677396022453,
+      "contentHash": "944c86a8f0040f3845576d9fe05bf3c1",
+      "sourceName": "src/extensions/SafeMathInt.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "SafeMathInt": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "SafeMathInt.sol/SafeMathInt.json"
         }
       }
     },
