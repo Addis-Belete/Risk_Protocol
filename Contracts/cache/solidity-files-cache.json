@@ -1100,6 +1100,61 @@
         }
       }
     },
+    "script/ListTokens.s.sol": {
+      "lastModificationDate": 1677493485037,
+      "contentHash": "7b709bb2461625ad5eab553407368066",
+      "sourceName": "script/ListTokens.s.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/forge-std/src/Base.sol",
+        "lib/forge-std/src/Script.sol",
+        "lib/forge-std/src/StdChains.sol",
+        "lib/forge-std/src/StdCheats.sol",
+        "lib/forge-std/src/StdJson.sol",
+        "lib/forge-std/src/StdMath.sol",
+        "lib/forge-std/src/StdStorage.sol",
+        "lib/forge-std/src/StdUtils.sol",
+        "lib/forge-std/src/Vm.sol",
+        "lib/forge-std/src/console.sol",
+        "lib/forge-std/src/console2.sol",
+        "lib/forge-std/src/interfaces/IMulticall3.sol",
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "src/IUniswap.sol",
+        "src/ListToken.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "ListTokenScript": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "ListTokens.s.sol/ListTokenScript.json"
+        }
+      }
+    },
     "script/Token.s.sol": {
       "lastModificationDate": 1677400243393,
       "contentHash": "8c1770fb077103d8785bac9b0cc7470c",
@@ -1320,6 +1375,90 @@
       "artifacts": {
         "IExchange": {
           "0.8.17+commit.8df45f5f.Darwin.appleclang": "IOx.sol/IExchange.json"
+        }
+      }
+    },
+    "src/IUniswap.sol": {
+      "lastModificationDate": 1677492094250,
+      "contentHash": "d32708f3e0da8dec7880c5d4b17a91b9",
+      "sourceName": "src/IUniswap.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "IUniswap": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "IUniswap.sol/IUniswap.json"
+        },
+        "IUniswapFactory": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "IUniswap.sol/IUniswapFactory.json"
+        }
+      }
+    },
+    "src/ListToken.sol": {
+      "lastModificationDate": 1677493607434,
+      "contentHash": "7a4ee725da5cefb9a248d38cf7a18fbf",
+      "sourceName": "src/ListToken.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ]
+            }
+          },
+          "evmVersion": "london",
+          "libraries": {}
+        }
+      },
+      "imports": [
+        "lib/openzeppelin-contracts/contracts/token/ERC20/IERC20.sol",
+        "src/IUniswap.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "ListToken": {
+          "0.8.17+commit.8df45f5f.Darwin.appleclang": "ListToken.sol/ListToken.json"
         }
       }
     },

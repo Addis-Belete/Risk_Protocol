@@ -4,6 +4,7 @@ out = 'out'
 libs = ['lib']
 [rpc_endpoints]
 mumbai = "${MUMBAI_RPC_URL}"
+georli = "{GEORLI_RPC_URL}"
 
 [etherscan]
 goerli = { key = "${ETHERSCAN_API_KEY}" }

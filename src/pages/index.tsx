@@ -9,9 +9,9 @@ import { Header } from '@/Components/header'
 export default function Home() {
   return (
     <>
-      <Head>
+      
        <Header/>
-      </Head>
+      
       <main className={styles.main}>
 	<label htmlFor="maker">Maker Token Amount</label>
 	<input type="text" id='maker' /> <br/>
