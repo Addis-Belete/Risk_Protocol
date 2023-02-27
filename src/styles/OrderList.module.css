@@ -3,6 +3,13 @@
 	margin-top: 150px;
 
 }
+
+.orders p{
+text-align: center;
+font-size: x-large;
+color: red;
+
+}
 .list {
 	display: flex;
 	justify-content: space-evenly;
@@ -31,11 +38,28 @@
 
 }
 .list p{
-	color: #dadfd9
+	color: #dadfd9;
+	font-size: medium;
 
 }
 .list p span {
 color: #3c7d6a;
-font-size: large;
+font-size:large;
+
+}
+
+.success {
+display: block;
+font-size: x-large;
+color: green;
+font-weight: bold;
+text-align: center;
+
+}
+
+.success a {
+	color: blue;
+	text-decoration: underline;
+	font-size: large;
 
 }

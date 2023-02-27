@@ -1,6 +1,7 @@
 //import utils from "@0x/protocol-utils";
 import { ContractWrappers, ERC20TokenContract } from "@0x/contract-wrappers";
-const { BigNumber } = require("@0x/utils");
+import TokenABI from "../../Contracts/out/Token.sol/UFragments.json";
+const { BigNumber, hexUtils } = require("@0x/utils");
 const {
   getContractAddressesForChainOrThrow,
 } = require("@0x/contract-addresses");
@@ -10,140 +11,132 @@ const {
   RPCSubprovider,
   Web3ProviderEngine,
 } = require("@0x/subproviders");
-const { ethers } = require("ethers");
-import TokenABI from "../../Contracts/out/ERC20.sol/Token.json";
+const ethers = require("ethers");
+import ERC20ABI from "../../Contracts/out/ERC20.sol/Token.json";
 const utils = require("@0x/protocol-utils");
 import { Web3Wrapper } from "@0x/web3-wrapper";
 
-let makerToken: string = "0x5dd7be3badc927a2dc355a276b7f6a3420550c96"; // usdc address
+let makerToken: string = "0xe12Ea88F759E8f2e17507074E9465860247FF699"; // Addis Token
 let takerToken: string = "0x6deef5155d778b3a82b8ca91d9e493e0c27eef3f"; // weth address
 const NULL_ADDRESS: string = "0x0000000000000000000000000000000000000000";
 declare let window: any;
 
-
 const TX_DEFAULTS = { gas: 500000, gasPrice: 20e9 };
 
 // create limit order
-export async function listToken() {
-  const addresses = getContractAddressesForChainOrThrow(80001);
-  console.log(addresses);
-  const provider = new ethers.BrowserProvider(window.ethereum);
-  const accounts = await provider.send("eth_requestAccounts", []);
-  console.log(accounts);
-  const signer = await provider.getSigner();
+export async function listToken(makerAmount: string, takerAmount: string) {
+  try {
+    const addresses = getContractAddressesForChainOrThrow(80001);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const accounts = await provider.send("eth_requestAccounts", []);
+    const signer = await provider.getSigner();
+    /** */
+    const AddisToken = new ethers.Contract(makerToken, TokenABI.abi, provider);
 
-  const USDCToken = new ethers.Contract(makerToken, TokenABI.abi, provider);
-/** 
-  await USDCToken.connect(signer).approve(
-    addresses.exchangeProxy,
-    "5000000000000000000"
-  );
-*/
-  // Use first selected Metamask account
-  const maker = accounts[0];
-  
-  const order = new utils.LimitOrder({
-    makerToken: makerToken,
-    takerToken: takerToken,
-    makerAmount: new BigNumber(5),
-    takerAmount: new BigNumber(5),
-    maker: maker,
-    sender: NULL_ADDRESS,
-    expiry: new BigNumber(getFutureExpiryInSeconds()),
-    salt: new BigNumber(Date.now()),
-    chainId: 80001,
-    verifyingContract: addresses.exchangeProxy,
-  });
+    const _makerAmount = Web3Wrapper.toBaseUnitAmount(
+      new BigNumber(makerAmount),
+      9
+    );
+    const _takerAmount = Web3Wrapper.toBaseUnitAmount(
+      new BigNumber(takerAmount),
+      18
+    );
+    await AddisToken.connect(signer).approve(
+      addresses.exchangeProxy,
+      _makerAmount.toString()
+    );
 
-  const supportedProvider = new MetamaskSubprovider(
-    window.web3.currentProvider
-  );
+    // Use first selected Metamask account
+    const maker = accounts[0];
 
-  const signature = await order.getSignatureWithProviderAsync(
-    supportedProvider,
-    utils.SignatureType.EIP712 // Optional
-  );
-  console.log(`Signature: ${JSON.stringify(signature, undefined, 2)}`);
-	
-  const signedOrder = { ...order, signature };
-	console.log(signedOrder);
-  let orders = [];
-  orders.push(signedOrder);
+    const order = new utils.LimitOrder({
+      makerToken: makerToken,
+      takerToken: takerToken,
+      makerAmount: _makerAmount,
+      takerAmount: _takerAmount,
+      maker: maker,
+      taker: NULL_ADDRESS,
+      sender: NULL_ADDRESS,
+      expiry: new BigNumber(getFutureExpiryInSeconds()),
+      salt: new BigNumber(Date.now()),
+      chainId: 80001,
+      verifyingContract: addresses.exchangeProxy,
+    });
 
-  orders = orders.concat(JSON.parse(window.localStorage.getItem("orderss")) || []);
-  window.localStorage.setItem("orderss", JSON.stringify(orders));
-	
-  
+    const supportedProvider = new MetamaskSubprovider(
+      window.web3.currentProvider
+    );
+
+    const signature = await order.getSignatureWithProviderAsync(
+      supportedProvider,
+      utils.SignatureType.EIP712,
+      maker
+      // Optional
+    );
+
+    console.log(`Signature: ${JSON.stringify(signature, undefined, 2)}`);
+
+    const signedOrder = { ...order, signature };
+    console.log(signedOrder);
+    let orders = [];
+    orders.push(signedOrder);
+
+    orders = orders.concat(
+      JSON.parse(window.localStorage.getItem("newOrder")) || []
+    );
+    window.localStorage.setItem("newOrder", JSON.stringify(orders));
+  } catch (err) {
+    console.log(err);
+  }
 }
-
-
 
 // Fill limit order
 
+export async function buyTokens(
+  _order: any = {},
+  _signature: any,
+  _takerAmount: string
+) {
+  try {
+    const addresses = getContractAddressesForChainOrThrow(80001);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const accounts = await provider.send("eth_requestAccounts", []);
+    const signer = await provider.getSigner();
 
-export async function buyTokens() {
-
-  const provider = new ethers.BrowserProvider(window.ethereum);
-  const accounts = await provider.send("eth_requestAccounts", []);
-  console.log(accounts);
-  const signer = await provider.getSigner();
-
-  const WETHToken = new ethers.Contract(takerToken, TokenABI.abi, provider);
-
-  //let amount = ethers.utils.parseEther("200")
-
-  // Approve
-  const addresses = getContractAddressesForChainOrThrow(80001);
-  console.log(addresses);
-  let order1 = window.localStorage.getItem("orderss");
-
-  const web3Wrapper = new Web3Wrapper(determineProvider());
-
-  let orders = JSON.parse(`${order1}`);
-console.log(orders,"orders from buy token")
-/** 
-  const makerAssetAmount = Web3Wrapper.toBaseUnitAmount(new BigNumber(5), 18);
-  // the amount the maker wants of taker asset
-  const takerAssetAmount = Web3Wrapper.toBaseUnitAmount(new BigNumber(5), 18);
-  console.log(takerAssetAmount.toString());
-  console.log(makerAssetAmount.toString());
-  await WETHToken.connect(signer).approve(
-    addresses.exchangeProxy,
-    "5000000000000000000"
-  );
-  console.log(orders.takerAmount);
-  const order = new utils.LimitOrder({
-    makerToken: orders.makerToken,
-    takerToken: orders.takerToken,
-    makerAmount: makerAssetAmount,
-    takerAmount: takerAssetAmount,
-    maker: orders.maker,
-    sender: orders.sender,
-    expiry: orders.expiry,
-    salt: parseInt(orders.salt),
-    chainId: orders.chainId,
-    verifyingContract: orders.verifyingContract,
-  });
-
-  const contractWrappers = new ContractWrappers(determineProvider(), {
-    chainId: 80001,
-  });
- 
-
-  const protocolFeeMultiplier = new BigNumber(
-    await contractWrappers.exchangeProxy.getProtocolFeeMultiplier().callAsync()
-  );
-
-  await contractWrappers.exchangeProxy
-    .fillLimitOrder(order, orders.signature, takerAssetAmount)
-    .sendTransactionAsync({
-      from: accounts[0],
-      value: new BigNumber(0),
-      ...TX_DEFAULTS,
-    })
-    .then((res: any) => console.log(res))
-    .catch((err: any) => console.log(err));
-*/
+    const WETHToken = new ethers.Contract(takerToken, ERC20ABI.abi, provider);
+    const supportedProvider = new MetamaskSubprovider(
+      window.web3.currentProvider
+    );
+    const contractWrappers = new ContractWrappers(determineProvider(), {
+      chainId: 80001,
+    });
+    const protocolFeeMultiplier = new BigNumber(
+      await contractWrappers.exchangeProxy
+        .getProtocolFeeMultiplier()
+        .callAsync()
+    );
+	console.log(_order.takerAmount, "order taker amount");
+    await WETHToken.connect(signer).approve(
+      addresses.exchangeProxy,
+      _order.takerAmount
+    );
+    const exchange = new ethers.Contract(
+      addresses.exchangeProxy,
+      contractWrappers.exchangeProxy.abi,
+      provider
+    );
+    console.log(exchange);
+    let tx3 = await exchange
+      .connect(signer)
+      .fillLimitOrder(_order, _signature, _takerAmount, {
+        value: calculateProtocolFee(1, protocolFeeMultiplier).toString(),
+        gasLimit: "7500000",
+      });
+    console.log(tx3);
+	return tx3.hash;
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 const determineProvider = (): typeof Web3ProviderEngine => {
@@ -166,4 +159,18 @@ const getFutureExpiryInSeconds = () => {
 };
 
 //
-export async function rebase() {}
+export async function rebase(epoch: string, supplyDelta: string) {
+  try {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const accounts = await provider.send("eth_requestAccounts", []);
+    console.log(accounts);
+    const signer = await provider.getSigner();
+    const AddisToken = new ethers.Contract(makerToken, TokenABI.abi, provider);
+	
+   const tx =  await AddisToken.connect(signer).rebase(epoch, supplyDelta, {gasLimit:"750000"});
+	console.log(tx);
+	return tx.hash;
+  } catch (err) {
+    console.log(err);
+  }
+}
