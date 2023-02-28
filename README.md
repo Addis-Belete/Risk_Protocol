@@ -1,38 +1,89 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+
+# RISK EXCHANGE
+
+> In this project, I created a ERC20 token exchange using order book on top of 0x Protocol. A user can create order off-chain and this order executed on-chain. Currently it is deployed on Polygon Mumbia.
+
+![screenshot](/src/assets/listform.png)
+![screenshot](/src/assets/orderlist.png)
+
+
+
+
+## Built With
+
+- TypeScript
+- Next JS
+- Foundry
+- Solidity
+- ether.js
+- 0x protocol packages
+
+## Live Demo
+
+[Live Demo Link](https://risk-protocol-vn81.vercel.app/)
+
+## Prerequisites
+
+```
+Web Browser
+Metamask
+
+```
+
+## Install
+
+```
+$ npm install
+
+```
+```
+$ cd Contracts and run forge Install
+
+```
 
 ## Getting Started
 
-First, run the development server:
+## To get local copy up and running follow these simple example steps
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+```
+git clone git@github.com:Addis-Belete/Risk_Protocol.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Deployment
+## To deploy the contracts 
+```
+	1. run forge build in Contracts folder
+```
+```
+	2. run scripts in the script
+```
+```
+	3. Change the address with the newly deployed address
+```
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+👤 **Addis Belete**
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+- GitHub: [@Addis0943](https://github.com/Addis0943)
+- Twitter: [@Addis32018084](https://twitter.com/Addis32018084)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/addis-belete-134b98191/)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## 🤝 Contributing
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Contributions, issues, and feature requests are welcome!
 
-## Learn More
+Feel free to check the [issues page](../../issues/).
 
-To learn more about Next.js, take a look at the following resources:
+## Show your support
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Give a ⭐️ if you like this project!
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Acknowledgments
 
-## Deploy on Vercel
+- Hat tip to anyone whose code was used
+- Inspiration
+- etc
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📝 License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is [MIT](./MIT.md) licensed.
