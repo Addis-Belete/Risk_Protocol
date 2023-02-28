@@ -1,10 +1,10 @@
 import { useState } from "react";
 import styles from "@/styles/OrderList.module.css";
 const utils = require("@0x/protocol-utils");
-import { Web3Wrapper } from "@0x/web3-wrapper";
+const { Web3Wrapper } = require("@0x/web3-wrapper");
 const { BigNumber, hexUtils } = require("@0x/utils");
 import { buyTokens } from "../pages/app";
-import { ethers } from "ethers";
+const { ethers } = require("ethers");
 
 declare let window: any;
 
