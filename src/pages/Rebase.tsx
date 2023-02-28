@@ -1,7 +1,7 @@
 import { Header } from "@/Components/header";
 import styles from "@/styles/Home.module.css";
 import { useEffect, useState } from "react";
-import { rebase } from "./app";
+import { rebase } from "../Components/app";
 export default function Rebase() {
   const [epoch, setEpoch] = useState("");
   const [supplyDelta, setSupplyDelta] = useState("");

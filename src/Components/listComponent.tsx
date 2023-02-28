@@ -3,7 +3,7 @@ import styles from "@/styles/OrderList.module.css";
 const utils = require("@0x/protocol-utils");
 const { Web3Wrapper } = require("@0x/web3-wrapper");
 const { BigNumber, hexUtils } = require("@0x/utils");
-import { buyTokens } from "../pages/app";
+import { buyTokens } from "./app";
 const { ethers } = require("ethers");
 
 declare let window: any;
