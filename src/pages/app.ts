@@ -1,19 +1,19 @@
 //import utils from "@0x/protocol-utils";
 import { ContractWrappers, ERC20TokenContract } from "@0x/contract-wrappers";
 import TokenABI from "../../Contracts/out/Token.sol/UFragments.json";
-const { BigNumber, hexUtils } = require("@0x/utils");
-const {
+import { BigNumber, hexUtils } from "@0x/utils";
+import {
   getContractAddressesForChainOrThrow,
-} = require("@0x/contract-addresses");
+} from "@0x/contract-addresses";
 import { providerUtils } from "@0x/utils";
-const {
+import {
   MetamaskSubprovider,
   RPCSubprovider,
   Web3ProviderEngine,
-} = require("@0x/subproviders");
-const ethers = require("ethers");
+} from "@0x/subproviders";
+import { ethers } from "ethers";
 import ERC20ABI from "../../Contracts/out/ERC20.sol/Token.json";
-const utils = require("@0x/protocol-utils");
+import utils  from "@0x/protocol-utils";
 import { Web3Wrapper } from "@0x/web3-wrapper";
 
 let makerToken: string = "0xe12Ea88F759E8f2e17507074E9465860247FF699"; // Addis Token
@@ -82,9 +82,9 @@ export async function listToken(makerAmount: string, takerAmount: string) {
     orders.push(signedOrder);
 
     orders = orders.concat(
-      JSON.parse(window.localStorage.getItem("newOrder")) || []
+      JSON.parse(window.localStorage.getItem("newOrder2")) || []
     );
-    window.localStorage.setItem("newOrder", JSON.stringify(orders));
+    window.localStorage.setItem("newOrder2", JSON.stringify(orders));
   } catch (err) {
     console.log(err);
   }
@@ -132,6 +132,7 @@ export async function buyTokens(
         value: calculateProtocolFee(1, protocolFeeMultiplier).toString(),
         gasLimit: "7500000",
       });
+	tx3.wait()
     console.log(tx3);
 	return tx3.hash;
   } catch (err) {

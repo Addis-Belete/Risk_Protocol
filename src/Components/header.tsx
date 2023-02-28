@@ -1,10 +1,12 @@
 import styles from "@/styles/Header.module.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { ethers } from "ethers";
 import { useEffect, useState } from "react";
 declare let window: any;
 export const Header = () => {
   const [active, setActive] = useState("");
+const router = useRouter();
   const connect = async () => {
     try {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -29,13 +31,13 @@ export const Header = () => {
         </h1>
         <ul>
           <li>
-            <Link href="/">List Order</Link>
+            <Link legacyBehavior href="/"><a style={{ color: router.pathname == "/" ? "#3c7d6a" : "" }}>List Order</a></Link>
           </li>
           <li>
-            <Link href="/listOrders">Buy Order</Link>
+            <Link legacyBehavior href="/listOrders"><a style={{ color: router.pathname == "/listOrders" ? "#3c7d6a" : "" }}>Buy Order</a></Link>
           </li>
           <li>
-            <Link href="/Rebase">Rebase</Link>
+            <Link legacyBehavior href="/Rebase"><a style={{ color: router.pathname == "/Rebase" ? "#3c7d6a" : "" }}>Rebase</a></Link>
           </li>
         </ul>
         <div>

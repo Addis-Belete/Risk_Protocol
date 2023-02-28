@@ -20,7 +20,7 @@ contract ListToken {
 		IERC20(tokenA).approve(routerAddress, tokenAmount);
 		IERC20(tokenB).approve(routerAddress, tokenBAmount);
 
-		add.addLiquidity(tokenA, tokenB, tokenAmount, tokenBAmount, 0, 0, msg.sender, block.timestamp+ 5 minutes);
+		add.addLiquidity(tokenA, tokenB, tokenAmount, tokenBAmount, 0, 0, msg.sender, block.timestamp + 5 minutes);
 
 	}
 
