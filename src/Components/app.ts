@@ -1,20 +1,16 @@
 //import utils from "@0x/protocol-utils";
-const { ContractWrappers, ERC20TokenContract } = require("@0x/contract-wrappers");
+import { ContractWrappers } from "@0x/contract-wrappers";
 import TokenABI from "../../Contracts/out/Token.sol/UFragments.json";
-const { BigNumber, hexUtils } = require("@0x/utils");
-const {
+import { BigNumber } from "@0x/utils";
+import {
   getContractAddressesForChainOrThrow,
-} = require("@0x/contract-addresses");
-const  { providerUtils } = require("@0x/utils");
-const {
-  MetamaskSubprovider,
-  RPCSubprovider,
-  Web3ProviderEngine,
-} =require("@0x/subproviders");
-const{ ethers } =require("ethers");
+} from "@0x/contract-addresses";
+import { providerUtils } from "@0x/utils";
+import { MetamaskSubprovider, RPCSubprovider, Web3ProviderEngine } from "@0x/subproviders";
+import { ethers } from "ethers";
 import ERC20ABI from "../../Contracts/out/ERC20.sol/Token.json";
-const utils  = require("@0x/protocol-utils");
-const  { Web3Wrapper } = require("@0x/web3-wrapper");
+import utils from "@0x/protocol-utils";
+import { Web3Wrapper } from "@0x/web3-wrapper";
 
 let makerToken: string = "0xe12Ea88F759E8f2e17507074E9465860247FF699"; // Addis Token
 let takerToken: string = "0x6deef5155d778b3a82b8ca91d9e493e0c27eef3f"; // weth address
@@ -23,7 +19,9 @@ declare let window: any;
 
 const TX_DEFAULTS = { gas: 500000, gasPrice: 20e9 };
 
-// create limit order
+// Used to create order for exchange of ADT -> WETH
+// makerAmount -> The amount of ADT token we want to sell
+// takerAmount -> The amount of WETH we receive in for given makerAmount
 export async function listToken(makerAmount: string, takerAmount: string) {
   try {
     const addresses = getContractAddressesForChainOrThrow(80001);
@@ -90,8 +88,7 @@ export async function listToken(makerAmount: string, takerAmount: string) {
   }
 }
 
-// Fill limit order
-
+// Used fill Limit order.
 export async function buyTokens(
   _order: any = {},
   _signature: any,
@@ -140,6 +137,25 @@ export async function buyTokens(
   }
 }
 
+
+
+//Rebase function
+export async function rebase(epoch: string, supplyDelta: string) {
+  try {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const accounts = await provider.send("eth_requestAccounts", []);
+    console.log(accounts);
+    const signer = await provider.getSigner();
+    const AddisToken = new ethers.Contract(makerToken, TokenABI.abi, provider);
+	
+   const tx =  await AddisToken.connect(signer).rebase(epoch, supplyDelta, {gasLimit:"750000"});
+	console.log(tx);
+	return tx.hash;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 const determineProvider = (): typeof Web3ProviderEngine => {
   const pe = new Web3ProviderEngine();
   pe.addProvider(new RPCSubprovider("https://rpc-mumbai.maticvigil.com"));
@@ -158,20 +174,3 @@ const calculateProtocolFee = (
 const getFutureExpiryInSeconds = () => {
   return Math.floor(Date.now() / 1000 + 300).toString(); // 5 min expiry
 };
-
-//
-export async function rebase(epoch: string, supplyDelta: string) {
-  try {
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const accounts = await provider.send("eth_requestAccounts", []);
-    console.log(accounts);
-    const signer = await provider.getSigner();
-    const AddisToken = new ethers.Contract(makerToken, TokenABI.abi, provider);
-	
-   const tx =  await AddisToken.connect(signer).rebase(epoch, supplyDelta, {gasLimit:"750000"});
-	console.log(tx);
-	return tx.hash;
-  } catch (err) {
-    console.log(err);
-  }
-}
