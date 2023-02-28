@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Header } from "@/Components/header";
 import styles from "@/styles/OrderList.module.css";
-import { ListCompenent } from "@/Components/listComponent";
+import  ListCompenent  from "@/Components/listComponent";
 declare let window: any;
 export default function listOrders() {
  

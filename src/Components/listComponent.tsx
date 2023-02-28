@@ -8,7 +8,7 @@ import { ethers } from "ethers";
 
 declare let window: any;
 
-export const ListCompenent = (order: any, index: any) => {
+ const ListCompenent = (order: any, index: any) => {
   console.log(order.order.makerToken, "from list componet");
   let makerAddress = "0xe12Ea88F759E8f2e17507074E9465860247FF699";
 
@@ -92,3 +92,4 @@ export const ListCompenent = (order: any, index: any) => {
     </>
   );
 };
+export default ListCompenent;
