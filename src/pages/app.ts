@@ -1,16 +1,16 @@
 //import utils from "@0x/protocol-utils";
 import { ContractWrappers, ERC20TokenContract } from "@0x/contract-wrappers";
 import TokenABI from "../../Contracts/out/Token.sol/UFragments.json";
-import { BigNumber, hexUtils } from "@0x/utils";
+const { BigNumber, hexUtils } = require("@0x/utils");
 import {
   getContractAddressesForChainOrThrow,
 } from "@0x/contract-addresses";
 import { providerUtils } from "@0x/utils";
-import {
+const {
   MetamaskSubprovider,
   RPCSubprovider,
   Web3ProviderEngine,
-} from "@0x/subproviders";
+} =require("@0x/subproviders");
 import { ethers } from "ethers";
 import ERC20ABI from "../../Contracts/out/ERC20.sol/Token.json";
 import utils  from "@0x/protocol-utils";
