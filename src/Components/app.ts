@@ -1,12 +1,12 @@
 //import utils from "@0x/protocol-utils";
 import { ContractWrappers } from "@0x/contract-wrappers";
 import TokenABI from "../../Contracts/out/Token.sol/UFragments.json";
-import { BigNumber } from "@0x/utils";
+const { BigNumber }= require ("@0x/utils");
 import {
   getContractAddressesForChainOrThrow,
 } from "@0x/contract-addresses";
 import { providerUtils } from "@0x/utils";
-import { MetamaskSubprovider, RPCSubprovider, Web3ProviderEngine } from "@0x/subproviders";
+const { MetamaskSubprovider, RPCSubprovider, Web3ProviderEngine } = require("@0x/subproviders");
 import { ethers } from "ethers";
 import ERC20ABI from "../../Contracts/out/ERC20.sol/Token.json";
 import utils from "@0x/protocol-utils";
@@ -130,7 +130,6 @@ export async function buyTokens(
         gasLimit: "7500000",
       });
 	tx3.wait()
-    console.log(tx3);
 	return tx3.hash;
   } catch (err) {
     console.log(err);
@@ -147,8 +146,7 @@ export async function rebase(epoch: string, supplyDelta: string) {
     console.log(accounts);
     const signer = await provider.getSigner();
     const AddisToken = new ethers.Contract(makerToken, TokenABI.abi, provider);
-	
-   const tx =  await AddisToken.connect(signer).rebase(epoch, supplyDelta, {gasLimit:"750000"});
+   	const tx =  await AddisToken.connect(signer).rebase(epoch, supplyDelta, {gasLimit:"750000"});
 	console.log(tx);
 	return tx.hash;
   } catch (err) {
